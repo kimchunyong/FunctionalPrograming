@@ -25,38 +25,29 @@ function map (list, iteratee) {
   }
   return new_list;
 }
-
+/*
 var users_under_30 = filter(users, function (user) {
   return user.age < 30;
 });
 
 console.log(users_under_30);
-/*
-    [[object Object] {
-        age: 25,
-        id: 2,
-        name: "HA"
-        }, [object Object] {
-        age: 28,
-        id: 4,
-        name: "PJ"
-        }, [object Object] {
-        age: 27,
-        id: 5,
-        name: "JE"
-        }, [object Object] {
-        age: 24,
-        id: 7,
-        name: "HI"
-    }]
-  */
 
 var ages = map(users_under_30, function (user) {
   return user.age;
 });
 
 console.log(ages); // [25, 28, 27, 24]
+*/
+var ages = map(
+  filter(users, function (user) {
+    return user.age < 30;
+  }),
+  function (user) {
+    return user.age;
+  }
+);
 
+/*
 var users_over_30 = filter(users, function (user) {
   return user.age >= 30;
 });
@@ -66,5 +57,17 @@ console.log(users_over_30);
 var names = map(users_over_30, function (user) {
   return user.name;
 });
+
+console.log(names);
+*/
+
+var names = map(
+  filter(users, function (user) {
+    return user.age >= 30;
+  }),
+  function (user) {
+    return user.name;
+  }
+);
 
 console.log(names);
