@@ -23,6 +23,16 @@ var users = [
   { id: 7, name: 'HI', age: 24 }
 ];
 
+function filter (list, predicate) {
+  var new_list = [];
+  for (var i = 0, len = list.length; i < len; i++) {
+    if (predicate(list[i])) {
+      new_list.push(list[i]);
+    }
+  }
+  return new_list;
+}
+
 console.log(
   filter(users, function (user) {
     return user.id === 3;
